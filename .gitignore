@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Django
+db.sqlite3
+/media/
+*.log
+*.pot
+*.pyc
+*.pyo
+
+# Migrations
+**/migrations/
+!**/migrations/__init__.py
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Umgebung
+venv/
+env/
+ENV/
+
+# Git
+*.swp
+*.swo
