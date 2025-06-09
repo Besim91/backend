@@ -16,7 +16,7 @@ def single_gadgeds_view(request, gadget_id):
     return HttpResponse("not found")
 
 def single_gadgeds_slug_view(request, gadget_slug):
-    gadget_match = {"result": "nothing"}
+    gadget_match = {"result": "nothing Besim"}
     
     for gadget in gadgets:
         if slugify(gadget["name"]) == gadget_slug:
@@ -32,7 +32,7 @@ def single_gadgeds_post_view(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body)
-            print(f"received data: {data}")
+            print(f"received data: {data["test"]}")
             return JsonResponse({"response": "Das wahr was"})        
         except:
             return JsonResponse({"response": "Das wahr wohl nix"})

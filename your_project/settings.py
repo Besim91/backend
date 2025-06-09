@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zq-uw3%-*cc+%$0wdvchr0pvvyc_bwvjl&a3%4s%iylmnq*dbe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["http://127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders', #Für das handling von cross-origin request
+    'tech_gadgets'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ CSRF_TRUSTED_ORIGINS = [
 
   'http://127.0.0.1:8000',
 
-  'http://127.0.0.1:8000',
+  'http://127.0.0.1:5500',
 
 ]
 
@@ -64,7 +66,7 @@ CORS_ALLOWED_ORIGINS = [
 
   'http://127.0.0.1:8000',
 
-  'http://127.0.0.1:8000',
+  'http://127.0.0.1:5500',
 ]
 # ----------------------------------------------------------------
 ROOT_URLCONF = 'your_project.urls'
