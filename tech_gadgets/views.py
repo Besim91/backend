@@ -4,12 +4,11 @@ from .dummy_data import gadgets
 import json
 from django.utils.text import slugify
 from django.urls import reverse
-
+from django.views import View
 
 
 def start_page_view(request):
     return HttpResponse("Das hat gut geklappt!")
-
 
 
 def single_gadgeds_int_view(request, gadget_id):
@@ -21,9 +20,8 @@ def single_gadgeds_int_view(request, gadget_id):
 
 
 
-def single_gadgeds_view(request, gadget_slug=""):
-    
-    if request.method == "GET":
+class GadgetsView(View):
+    def get(self,request,gadget_slug):
         gadget_match = None
         for gadget in gadgets:
             if slugify(gadget["name"]) == gadget_slug:
@@ -32,13 +30,11 @@ def single_gadgeds_view(request, gadget_slug=""):
         if gadget_match:        
             return JsonResponse(gadget_match)
         raise Http404()
-
     
-    if request.method == "POST":
+    def post(self, request,*args, **kwargs):
         try:
             data = json.loads(request.body)
             print(f"received data: {data["test"]}")
             return JsonResponse({"response": "Das wahr was"})        
         except:
             return JsonResponse({"response": "Das wahr wohl nix"})
-
