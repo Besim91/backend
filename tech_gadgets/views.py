@@ -5,10 +5,19 @@ import json
 from django.utils.text import slugify
 from django.urls import reverse
 from django.views import View
+from django.views.generic.base import RedirectView
 
 
 def start_page_view(request):
     return HttpResponse("Das hat gut geklappt!")
+
+class RedirectToGagedsView(RedirectView):
+    pattern_name = "gadget_slug_url"
+    
+    def get_redirect_url(self, *args, **kwargs):
+        slug = slugify(gadgets[kwargs.get("gadget_id",0)]["name"])
+        new_kwarg = {"gadget_slug_url": slug}
+        return super().get_redirect_url(*args, **new_kwarg)
 
 
 def single_gadgeds_int_view(request, gadget_id):
