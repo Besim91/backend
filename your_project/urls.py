@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 # from django.shortcuts import redirect
+from django.views.generic.base import RedirectView
+
 
 
 # # Das wird nicht hier definiert, dient nur zur veranschaulichung
@@ -25,5 +27,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tech_gadgets/' , include('tech_gadgets.urls'))
+    path('tech_gadgets/' , include('tech_gadgets.urls')),
+    # path('', RedirectView.as_view(url='tech_gadgets/')),  # Root-URL zur App leiten
 ]
