@@ -7,7 +7,15 @@
   </head>
 
   <body>
-    <h1/>Hat geklappt<h1>
+    <h1/>rendern hat geklappt<h1>
+
+      {% for gadget in gadget_list %}
+        <h2>
+          <a href="{{ story.get_absolute_url }}">
+            {{ gadget.name }}
+          </a>
+        </h2>
+      {% endfor %}
 
   </body>
 </html>
