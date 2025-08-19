@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Render</title>
-  </head>
+{% extends "base.html" %} 
 
-  <body>
-    <h1/>rendern hat geklappt<h1>
+{% block title %}Gadget list Extend{% endblock %} 
 
-      {% for gadget in gadget_list %}
-        <h2>
-          <a href="{{ story.get_absolute_url }}">
-            {{ gadget.name }}
-          </a>
-        </h2>
-      {% endfor %}
-
-  </body>
-</html>
+{% block content %} 
+    {% for gadget in gadget_list %}
+      <h2>{{gadget.name}}</h2>
+    {% endfor %} 
+{% endblock %}

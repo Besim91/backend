@@ -1,0 +1,7 @@
+h2 {
+  color: red;
+  background-color: yellow;
+  margin: 0;
+}
+
+/* strg+shift+R, hard reload. Wenn es niht klappt ist der cache mit der alten version gefüllt */
